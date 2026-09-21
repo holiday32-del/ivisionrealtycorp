@@ -34,14 +34,19 @@ const groups = [
     points: ["Marketing and tenant placement coordination", "Rent collection and owner reporting", "Maintenance and vendor oversight", "Day-to-day tenant communication"],
   },
   {
-    id: "funding", number: "03", kicker: "Real estate funding", title: "Connect with a dedicated real estate funding source.", image: "serviceImage fundingImage",
+    id: "lease-up", number: "03", kicker: "Lease-up services", title: "Turn newly delivered units into occupied homes.", image: "serviceImage leaseUpImage",
+    copy: "IVISION Lease-Up Services supports apartment developers, small multifamily owners, shared-living operators, and property managers that need focused leasing capacity during launch and stabilization.",
+    points: ["Pre-leasing and launch strategy", "Lead follow-up, tours, and application coordination", "Shared-living and bedroom-by-bedroom leasing support", "Weekly occupancy and leasing pipeline reporting"],
+  },
+  {
+    id: "funding", number: "04", kicker: "Real estate funding", title: "Connect with a dedicated real estate funding source.", image: "serviceImage fundingImage",
     copy: "New Wide Lending provides real estate funding information for home purchases, commercial property, and investment real estate. IVISION clients can explore available paths directly with its funding team.",
     points: ["Residential real estate funding information", "Commercial and investment property programs", "Program and documentation review", "Credit-readiness planning resources"],
     externalHref: NEW_WIDE_LENDING_URL,
     externalLabel: "Explore funding at New Wide Lending",
   },
   {
-    id: "business", number: "04", kicker: "Business solutions", title: "Build a stronger foundation for what comes next.", image: "serviceImage businessImage",
+    id: "business", number: "05", kicker: "Business solutions", title: "Build a stronger foundation for what comes next.", image: "serviceImage businessImage",
     copy: "For entrepreneurs and property investors, we provide structured guidance around business readiness, financing conversations, and growth planning.",
     points: ["Business structure and readiness guidance", "Commercial funding preparation", "Business credit education", "Professional partner connections"],
   },
@@ -230,7 +235,9 @@ export default function ServicesPage() {
                 <h2>{group.title}</h2>
                 <p>{group.copy}</p>
                 <ul>{group.points.map((point) => <li key={point}><span>→</span>{point}</li>)}</ul>
-                {group.externalHref ? (
+                {group.id === "lease-up" ? (
+                  <Link className="textLink" href="/lease-up-services">Explore lease-up services <span>↗</span></Link>
+                ) : group.externalHref ? (
                   <a className="textLink" href={group.externalHref} rel="noopener noreferrer" target="_blank">
                     {group.externalLabel} <span>↗</span>
                   </a>
