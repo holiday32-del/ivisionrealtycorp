@@ -39,7 +39,7 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
 .brandMark { width: 36px; height: 42px; display: grid; place-items: center; background: var(--ink); color: var(--gold-light); font-family: Georgia, serif; font-size: 1.75rem; font-style: italic; }
 .brand strong { display: block; font-family: Georgia, serif; font-size: 1.26rem; letter-spacing: .09em; }
 .brand small { display: block; margin-top: 6px; color: var(--muted); font-size: .56rem; font-weight: 700; letter-spacing: .3em; }
-.desktopNav { display: flex; gap: 34px; margin-left: auto; }
+.desktopNav { display: flex; gap: 24px; margin-left: auto; }
 .desktopNav a { position: relative; font-size: .82rem; font-weight: 700; letter-spacing: .04em; }
 .desktopNav a::after { position: absolute; content: ""; left: 0; right: 100%; bottom: -8px; height: 1px; background: var(--gold); transition: right .2s ease; }
 .desktopNav a:hover::after { right: 0; }
@@ -180,7 +180,7 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
 .pageHero .shell { position: relative; z-index: 1; padding-block: 80px; }
 .pageHero h1 { margin-bottom: 25px; }
 .pageHero .shell > p:last-child { max-width: 580px; color: rgba(255,255,255,.8); font-size: 1.05rem; }
-.anchorNav { min-height: 80px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; border-bottom: 1px solid var(--line); }
+.anchorNav { min-height: 80px; display: grid; grid-template-columns: repeat(5, 1fr); align-items: center; border-bottom: 1px solid var(--line); }
 .anchorNav a { padding: 24px 18px; border-right: 1px solid var(--line); font-size: .66rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .anchorNav a:first-child { padding-left: 0; }
 .anchorNav a:last-child { border: 0; }
@@ -193,6 +193,7 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
 .managementImage { background-image: url('/1738130396.jpg'); }
 .fundingImage { background-image: url('/596766296.jpg'); }
 .businessImage { background-image: url('/services-business-v3.jpg'); }
+.leaseUpImage { background-image: linear-gradient(0deg, rgba(5,20,29,.35), rgba(5,20,29,.08)), url('/1738130396.jpg'); }
 .serviceDetailContent { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 65px clamp(38px, 5vw, 76px); overflow: hidden; }
 .largeNumber { position: absolute; right: 25px; top: -43px; color: rgba(16,39,51,.055); font-family: Georgia, serif; font-size: 11rem; line-height: 1; }
 .serviceDetailContent > p:not(.eyebrow) { color: #536168; }
@@ -269,6 +270,61 @@ form .button { justify-self: start; margin-top: 8px; }
 .serviceArea strong { color: var(--gold); font-family: Georgia, serif; font-size: 1.6rem; font-weight: 400; }
 .serviceArea p { margin: 16px 0 0; color: var(--muted); }
 
+
+/* IVISION Lease-Up Services */
+.leaseUpHero { position: relative; min-height: 650px; display: flex; align-items: center; overflow: hidden; background: url('/1738130396.jpg') center 48%/cover no-repeat; color: white; }
+.leaseUpHeroShade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,19,27,.94) 0%, rgba(5,19,27,.75) 46%, rgba(5,19,27,.25) 82%); }
+.leaseUpHeroInner { position: relative; z-index: 1; padding-block: 110px; }
+.leaseUpHero h1 { max-width: 900px; margin-bottom: 28px; }
+.leaseUpIntro { display: grid; grid-template-columns: 1.05fr .95fr; gap: 9%; align-items: start; }
+.leaseUpIntroCopy { padding-top: 48px; color: var(--muted); }
+.leaseUpBand { background: var(--cream); }
+.leaseUpServiceGrid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.leaseUpServiceGrid article { min-height: 300px; padding: 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.42); }
+.leaseUpServiceGrid article > span { color: var(--gold); font-size: .7rem; font-weight: 800; letter-spacing: .12em; }
+.leaseUpServiceGrid h3 { margin: 62px 0 16px; font-size: 1.9rem; }
+.leaseUpServiceGrid p { color: var(--muted); font-size: .86rem; }
+.leaseUpProcess > h2 { max-width: 780px; }
+.leaseUpSteps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 48px; }
+.leaseUpSteps article { min-height: 255px; padding: 28px; border: 1px solid var(--line); background: white; }
+.leaseUpSteps strong { color: var(--gold); font-size: .7rem; letter-spacing: .12em; }
+.leaseUpSteps h3 { margin: 55px 0 14px; font-size: 1.8rem; }
+.leaseUpSteps p { color: var(--muted); font-size: .86rem; }
+
+.prospectPage { background: #f7f4ee; }
+.prospectHeader { padding: 90px 0 80px; background: var(--ink-deep); color: white; }
+.prospectHeader h1 { max-width: 980px; margin-bottom: 24px; font-size: clamp(3rem, 5.7vw, 5.8rem); }
+.prospectHeader > .shell > p:last-child { max-width: 760px; margin: 0; color: rgba(255,255,255,.7); }
+.prospectWorkspace { padding-top: 60px; }
+.prospectKpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 22px; }
+.prospectKpis article { padding: 22px 24px; border: 1px solid var(--line); background: white; }
+.prospectKpis span, .leadScore span, .prospectMetrics span { display: block; margin-bottom: 5px; color: var(--muted); font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.prospectKpis strong { color: var(--ink); font-family: Georgia, serif; font-size: 2rem; font-weight: 400; }
+.prospectFilters { display: grid; grid-template-columns: 2fr 1fr 1.15fr .85fr; gap: 16px; margin-bottom: 28px; padding: 22px 24px; border: 1px solid var(--line); background: white; }
+.prospectFilters label { margin: 0; }
+.prospectFilters input, .prospectFilters select { padding: 9px 0; }
+.prospectCards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.prospectCard { padding: 30px; border: 1px solid var(--line); background: white; box-shadow: 0 14px 32px rgba(8,26,36,.04); }
+.prospectCardTop { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.prospectCardTop h3 { margin: 14px 0 7px; font-size: 2rem; }
+.prospectCardTop p { color: var(--muted); font-size: .82rem; }
+.priorityTag { display: inline-block; padding: 5px 9px; border: 1px solid var(--line); font-size: .61rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.priorityHigh { border-color: rgba(200,149,82,.65); background: #fbf2e5; color: #79501d; }
+.priorityMedium { background: #f2f2ef; color: #586168; }
+.priorityLow { background: #f6f6f6; color: #6d7376; }
+.leadScore { min-width: 74px; padding: 12px 14px; border-left: 2px solid var(--gold); background: var(--cream); text-align: center; }
+.leadScore strong { font-family: Georgia, serif; font-size: 1.8rem; font-weight: 400; }
+.prospectMetrics { display: grid; grid-template-columns: .7fr 1.5fr .7fr; gap: 1px; margin: 24px 0; background: var(--line); border: 1px solid var(--line); }
+.prospectMetrics > div { padding: 15px 17px; background: var(--paper); }
+.prospectMetrics strong { font-size: .88rem; }
+.prospectDetails { margin: 0 0 26px; }
+.prospectDetails > div { display: grid; grid-template-columns: 140px 1fr; gap: 18px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.prospectDetails dt { color: var(--muted); font-size: .66rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.prospectDetails dd { margin: 0; color: #40515a; font-size: .84rem; }
+.prospectEmpty { padding: 45px; border: 1px solid var(--line); background: white; text-align: center; }
+.prospectDisclaimer { margin: 30px 0 0; color: var(--muted); font-size: .72rem; text-align: center; }
+
+
 .siteFooter { background: #06141d; color: white; }
 .footerMain { display: grid; grid-template-columns: 1.45fr .65fr .85fr 1fr; gap: 60px; padding-block: 80px; }
 .footerMain .brandMark { background: var(--gold); color: var(--ink); }
@@ -299,6 +355,9 @@ form .button { justify-self: start; margin-top: 8px; }
   .serviceDetail { grid-template-columns: 1fr; }
   .serviceDetail.reverse .serviceImage { order: 0; }
   .valuesGrid { grid-template-columns: 1fr 1fr; }
+  .leaseUpServiceGrid, .leaseUpSteps { grid-template-columns: 1fr 1fr; }
+  .prospectFilters { grid-template-columns: 1fr 1fr; }
+  .prospectCards { grid-template-columns: 1fr; }
   .contactPanel { grid-template-columns: .8fr 1.2fr; }
   .pathwaySteps { grid-template-columns: 1fr; }
   .footerMain { grid-template-columns: 1.2fr .8fr; }
@@ -321,7 +380,16 @@ form .button { justify-self: start; margin-top: 8px; }
   .heroStats strong { font-size: 1rem; }
   .trustItems { min-height: 58px; gap: 12px; justify-content: flex-start; overflow-x: auto; white-space: nowrap; }
   .trustItems i { flex: 0 0 4px; }
-  .introGrid, .aboutLead, .contactIntro, .faqLayout { grid-template-columns: 1fr; gap: 15px; }
+  .introGrid, .aboutLead, .contactIntro, .faqLayout, .leaseUpIntro { grid-template-columns: 1fr; gap: 15px; }
+  .leaseUpIntroCopy { padding-top: 0; }
+  .leaseUpHero { min-height: 600px; background-position: 58% center; }
+  .leaseUpHeroInner { padding-block: 80px; }
+  .leaseUpServiceGrid, .leaseUpSteps, .prospectKpis, .prospectFilters { grid-template-columns: 1fr; }
+  .prospectCard { padding: 24px; }
+  .prospectCardTop { flex-direction: column; }
+  .leadScore { align-self: flex-start; }
+  .prospectMetrics { grid-template-columns: 1fr; }
+  .prospectDetails > div { grid-template-columns: 1fr; gap: 5px; }
   .faqIntro { position: static; margin-bottom: 32px; }
   .introCopy { padding-top: 0; }
   .sectionHeading { display: block; }
