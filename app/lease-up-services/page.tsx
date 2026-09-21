@@ -19,7 +19,7 @@ export default function LeaseUpServicesPage() {
             <h1>From construction completion to <em>occupied units.</em></h1>
             <p className="heroCopy">Independent lease-up support for new apartments, small multifamily developments, shared-living properties, and recently renovated communities throughout Greater Los Angeles.</p>
             <div className="buttonRow">
-              <Link className="button buttonGold" href="/contact">Discuss a lease-up</Link>
+              <Link className="button buttonGold" href="/lease-up-services/prospects">Developer sign-up</Link>\n              <Link className="button buttonOutlineLight" href="/contact">Ask a question</Link>
             </div>
           </div>
         </section>
