@@ -39,7 +39,7 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
 .brandMark { width: 36px; height: 42px; display: grid; place-items: center; background: var(--ink); color: var(--gold-light); font-family: Georgia, serif; font-size: 1.75rem; font-style: italic; }
 .brand strong { display: block; font-family: Georgia, serif; font-size: 1.26rem; letter-spacing: .09em; }
 .brand small { display: block; margin-top: 6px; color: var(--muted); font-size: .56rem; font-weight: 700; letter-spacing: .3em; }
-.desktopNav { display: flex; gap: 34px; margin-left: auto; }
+.desktopNav { display: flex; gap: 24px; margin-left: auto; }
 .desktopNav a { position: relative; font-size: .82rem; font-weight: 700; letter-spacing: .04em; }
 .desktopNav a::after { position: absolute; content: ""; left: 0; right: 100%; bottom: -8px; height: 1px; background: var(--gold); transition: right .2s ease; }
 .desktopNav a:hover::after { right: 0; }
@@ -180,7 +180,7 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
 .pageHero .shell { position: relative; z-index: 1; padding-block: 80px; }
 .pageHero h1 { margin-bottom: 25px; }
 .pageHero .shell > p:last-child { max-width: 580px; color: rgba(255,255,255,.8); font-size: 1.05rem; }
-.anchorNav { min-height: 80px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; border-bottom: 1px solid var(--line); }
+.anchorNav { min-height: 80px; display: grid; grid-template-columns: repeat(5, 1fr); align-items: center; border-bottom: 1px solid var(--line); }
 .anchorNav a { padding: 24px 18px; border-right: 1px solid var(--line); font-size: .66rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .anchorNav a:first-child { padding-left: 0; }
 .anchorNav a:last-child { border: 0; }
