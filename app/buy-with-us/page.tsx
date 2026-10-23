@@ -1,3 +1,4 @@
+import { CreditConsultation } from "../credit-consultation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { NEW_WIDE_LENDING_URL } from "../new-wide-lending";
@@ -39,6 +40,7 @@ export default function BuyWithUsPage() {
             </div>
             <a className="button buttonGold" href={NEW_WIDE_LENDING_URL} rel="noopener noreferrer" target="_blank">Explore Home Financing</a>
           </section>
+          <CreditConsultation />
           <div className="pathwaySteps"><article><span>01</span><h3>Define the search</h3><p>Share the location, property type, timing, and priorities that shape your purchase.</p></article><article><span>02</span><h3>Explore properties</h3><p>Use the free search to review listings that fit your needs and preferred area.</p></article><article><span>03</span><h3>Plan the next step</h3><p>Contact IVISION Realty for representation and New Wide Lending separately for funding information.</p></article></div>
         </section>
       </main>

@@ -1,3 +1,4 @@
+import { CreditConsultation } from "../credit-consultation";
 import type { Metadata } from "next";
 import { AffiliateResourceCard, affiliateResources } from "../affiliate-resources";
 import { NEW_WIDE_LENDING_URL } from "../new-wide-lending";
@@ -120,6 +121,7 @@ export default function ResourcesPage() {
               mortgage and lending resource and is not labeled as an affiliate.
             </p>
 
+            <section className="resourceIndexGroup"><div><p className="eyebrow">Buyer &amp; relocation planning</p></div><CreditConsultation /></section>
             {affiliateResourceGroups.map((group) => (
               <section className="resourceIndexGroup" key={group.category}>
                 <div>
