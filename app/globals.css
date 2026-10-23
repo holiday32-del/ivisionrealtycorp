@@ -445,3 +445,6 @@ form .button { justify-self: start; margin-top: 8px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
+.creditConsultation { min-height: 0; margin-bottom: 32px; }
+.creditConsultation .creditConsultationDisclosure { margin: 12px 0 0; font-size: .875rem; line-height: 1.6; }

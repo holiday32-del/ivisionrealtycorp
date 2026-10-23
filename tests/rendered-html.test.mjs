@@ -371,3 +371,22 @@ test("uses distinct modern photography in the requested content sections", async
     }
   }
 });
+
+
+test("credit consultation is disclosed beside the tracked link only on buyer and relocation resources", async () => {
+  for (const path of ["/buy-with-us", "/resources"]) {
+    const html = await (await render(path)).text();
+    const block = html.match(/<aside[^>]*data-affiliate="creditRepair"[^>]*>[\s\S]*?<\/aside>/)?.[0];
+    assert.ok(block, path);
+    assert.match(block, /Your credit score shapes your buying power\. The Credit People offers a free consultation to map out your next steps\./);
+    assert.match(block, /https:\/\/thecreditpeople\.net\/\?a=17685&amp;c=1&amp;s1=ivision/);
+    assert.match(block, /rel="sponsored noopener noreferrer"/);
+    assert.match(block, /Free Consultation →/);
+    assert.match(block, /<\/a><p[^>]*>Partner link: iVision Realty Corp may earn a commission if you sign up through this link — it costs you nothing extra\.<\/p>/);
+    assert.equal((html.match(/<aside[^>]*data-affiliate="creditRepair"/g) || []).length, 1);
+  }
+  for (const path of ["/", "/contact", "/appointment", "/lease-up-services/prospects"]) {
+    const html = await (await render(path)).text();
+    assert.doesNotMatch(html, /thecreditpeople\.net/);
+  }
+});
