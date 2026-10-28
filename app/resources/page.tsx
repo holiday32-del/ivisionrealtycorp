@@ -112,6 +112,17 @@ export default function ResourcesPage() {
               </section>
             ))}
 
+            <section className="resourceIndexGroup preferredResourceGroup">
+              <div><p className="eyebrow">New Wide Lending&apos;s own service</p></div>
+              <article className="affiliateCard preferredResourceCard">
+                <div>
+                  <h3>New Wide Lending Credit Booster</h3>
+                  <p>Get credit-ready for your next big move.</p>
+                </div>
+                <a className="button buttonGold" href="https://credit.newwidelending.com">EXPLORE CREDIT READINESS</a>
+              </article>
+            </section>
+
             <p className="resourceIndexDisclosure">
               Affiliate Disclosure: The third-party resources below use
               affiliate links. iVision Realty may receive compensation from
