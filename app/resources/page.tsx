@@ -116,10 +116,10 @@ export default function ResourcesPage() {
               <div><p className="eyebrow">New Wide Lending&apos;s own service</p></div>
               <article className="affiliateCard preferredResourceCard">
                 <div>
-                  <h3>New Wide Lending Credit Booster</h3>
-                  <p>Get credit-ready for your next big move.</p>
+                  <h3>New Wide Lending Tradeline Brokerage Services</h3>
+                  <p>Information about authorized-user tradeline accounts and brokerage services.</p>
                 </div>
-                <a className="button buttonGold" href="https://credit.newwidelending.com">EXPLORE CREDIT READINESS</a>
+                <a className="button buttonGold" href="https://credit.newwidelending.com">EXPLORE TRADELINE SERVICES</a>
               </article>
             </section>
 
