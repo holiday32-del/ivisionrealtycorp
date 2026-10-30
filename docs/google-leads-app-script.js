@@ -25,7 +25,7 @@ function doPost(e) {
     if (sheet.getLastRow() === 0) sheet.appendRow(HEADERS);
     const log = ss.getSheetByName("_DeliveryLog") || ss.insertSheet("_DeliveryLog");
     if (log.getLastRow() === 0) log.appendRow(["Submission ID", "Lead tab", "Email sent"]);
-    log.hideSheet();
+    if (!log.isSheetHidden()) log.hideSheet();
     const entries = log.getLastRow() > 1 ? log.getRange(2,1,log.getLastRow()-1,3).getValues() : [];
     const index = entries.findIndex(row => row[0] === data.id);
     if (index >= 0 && entries[index][2] === true)
