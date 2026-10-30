@@ -23,13 +23,13 @@ function doPost(e) {
     const sheet = ss.getSheetByName(cfg.tab);
     if (!sheet) throw Error("Missing lead tab");
     if (sheet.getLastRow() === 0) sheet.appendRow(HEADERS);
-    // Hidden metadata in column I for idempotency, not part of the eight-column lead view.
-    if (sheet.getRange(1,9).getValue() !== "_submission_id") sheet.getRange(1,9).setValue("_submission_id");
-    sheet.hideColumns(9);
-    const last = sheet.getLastRow();
-    if (last > 1 && sheet.getRange(2,9,last-1,1).getValues().some(row => row[0] === data.id)) {
+    const log = ss.getSheetByName("_DeliveryLog") || ss.insertSheet("_DeliveryLog");
+    if (log.getLastRow() === 0) log.appendRow(["Submission ID", "Lead tab", "Email sent"]);
+    log.hideSheet();
+    const entries = log.getLastRow() > 1 ? log.getRange(2,1,log.getLastRow()-1,3).getValues() : [];
+    const index = entries.findIndex(row => row[0] === data.id);
+    if (index >= 0 && entries[index][2] === true)
       return ContentService.createTextOutput(JSON.stringify({success:true})).setMimeType(ContentService.MimeType.JSON);
-    }
     const safe = x => { const s = String(x ?? "").slice(0,4000); return /^[=+@\-]/.test(s) ? "'" + s : s; };
     const row = [new Date(), safe(name), safe(data.phone), safe(email), safe(data.site + " " + data.page), safe(data.interest), safe(data.message), "New", data.id];
     sheet.appendRow(row);
