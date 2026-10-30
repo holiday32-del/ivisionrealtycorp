@@ -31,11 +31,12 @@ function doPost(e) {
     if (index >= 0 && entries[index][2] === true)
       return ContentService.createTextOutput(JSON.stringify({success:true})).setMimeType(ContentService.MimeType.JSON);
     const safe = x => { const s = String(x ?? "").slice(0,4000); return /^[=+@\-]/.test(s) ? "'" + s : s; };
-    const row = [new Date(), safe(name), safe(data.phone), safe(email), safe(data.site + " " + data.page), safe(data.interest), safe(data.message), "New", data.id];
-    sheet.appendRow(row);
-    // Send only after sheet append; retry fails safely without producing another row.
+    const row = [new Date(), safe(name), safe(data.phone), safe(email), safe(data.site + " " + data.page), safe(data.interest), safe(data.message), "New"];
+    if (index < 0) { sheet.appendRow(row); log.appendRow([data.id, cfg.tab, false]); }
+    // Retry with the same ID does not append another row.
     const subject = data.site + " lead — " + data.page;
     MailApp.sendEmail({to:cfg.to, subject, body: "New website lead\n\n" + HEADERS.map((h,i)=>h+": "+row[i]).join("\n")});
+    log.getRange(index < 0 ? log.getLastRow() : index + 2, 3).setValue(true);
     return ContentService.createTextOutput(JSON.stringify({success:true})).setMimeType(ContentService.MimeType.JSON);
   } catch(err) {
     return ContentService.createTextOutput(JSON.stringify({success:false,error:"Lead not processed"})).setMimeType(ContentService.MimeType.JSON);
