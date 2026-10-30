@@ -1,3 +1,4 @@
+import { LeadSubmitForm } from "../components/lead-submit-form";
 import type { Metadata } from "next";
 import { breadcrumbSchema, pageOpenGraph, pageTwitter, webPageSchema } from "../seo";
 import { SiteShell } from "../site-shell";
@@ -40,15 +41,14 @@ export default function ContactPage() {
           <div className="contactImage" role="img" aria-label="Modern real estate consultation office" />
           <div className="contactFormWrap">
             <p className="eyebrow">Your inquiry</p><h2>How can we help?</h2>
-            <form action="mailto:info@ivisionrealtycorp.com" method="post" encType="text/plain">
+            <LeadSubmitForm page="/contact" button="Send inquiry" note="Your inquiry has been sent.">
               <div className="fieldRow"><label>First name<input name="First name" autoComplete="given-name" required /></label><label>Last name<input name="Last name" autoComplete="family-name" required /></label></div>
               <label>Email address<input type="email" name="Email" autoComplete="email" required /></label>
               <label>Phone number<input type="tel" name="Phone" autoComplete="tel" /></label>
               <label>I’m interested in<select name="Interest" defaultValue=""><option value="" disabled>Select a service</option><option>Buying or selling real estate</option><option>Property management</option><option>Property or land search</option><option>Real estate funding through New Wide Lending</option><option>Business solutions</option><option>Something else</option></select></label>
               <label>Tell us a little more<textarea name="Message" rows={5} required /></label>
-              <button className="button buttonDark" type="submit">Send inquiry</button>
-              <p className="formNote">Submitting opens your email app so you can review and send your message directly.</p>
-            </form>
+              
+              </LeadSubmitForm>
           </div>
         </section>
         <section className="serviceArea shell"><p className="eyebrow">Service area</p><h2>California knowledge with a Greater Los Angeles focus.</h2><div><article><strong>Greater Los Angeles</strong><p>Los Angeles, West Los Angeles, Culver City, Beverly Hills, Glendale, West Hollywood, and surrounding communities.</p></article><article><strong>Southern California</strong><p>San Bernardino County and select California markets based on service availability.</p></article></div></section>
