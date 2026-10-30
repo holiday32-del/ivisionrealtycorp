@@ -26,7 +26,8 @@ export async function POST(request: Request) {
   if (!allowedPages.has(page) || !name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !message)
     return NextResponse.json({ success: false, error: "Please complete the required fields." }, { status: 400 });
   const id = clean(body.submissionId, 64);
-  if (!/^[0-9a-f-]{36}$/i.test(id)) return NextResponse.json({success:false,error:"Missing submission ID."},{status:400});\n  const payload = { secret, site: "IVISION Realty Corp", page, name, phone, email, interest: interest || "other", message, recipient: "info@ivisionrealtycorp.com", id };
+  if (!/^[0-9a-f-]{36}$/i.test(id)) return NextResponse.json({success:false,error:"Missing submission ID."},{status:400});
+  const payload = { secret, site: "IVISION Realty Corp", page, name, phone, email, interest: interest || "other", message, recipient: "info@ivisionrealtycorp.com", id };
   try {
     const response = await fetch(endpoint, { method: "POST", body: JSON.stringify(payload), redirect: "follow", signal: AbortSignal.timeout(12000) });
     const result = await response.json();
