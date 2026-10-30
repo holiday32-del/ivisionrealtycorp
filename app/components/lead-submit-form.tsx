@@ -2,7 +2,8 @@
 import { useRef, useState, type FormEvent, type ReactNode } from "react";
 
 export function LeadSubmitForm({ page, children, button, note }: { page: string; children: ReactNode; button: string; note: string }) {
-  const submissionId = useRef<string | null>(null);\n  const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const submissionId = useRef<string | null>(null);
+  const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (state === "loading") return;
@@ -18,7 +19,8 @@ export function LeadSubmitForm({ page, children, button, note }: { page: string;
       const response = await fetch("/api/leads", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ submissionId: submissionId.current ||= crypto.randomUUID(), page, name, email: fields.Email, phone: fields.Phone, interest, message: message || interest, website: fields.website }) });
       const result = await response.json();
       if (!response.ok || !result.success) throw Error("Delivery failed");
-      setState("success");\n      submissionId.current = null;
+      setState("success");
+      submissionId.current = null;
       form.reset();
     } catch { setState("error"); }
   }
