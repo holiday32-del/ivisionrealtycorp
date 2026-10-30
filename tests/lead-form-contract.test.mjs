@@ -1,0 +1,10 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+const route=readFileSync(new URL("../app/api/leads/route.ts",import.meta.url),"utf8");
+const form=readFileSync(new URL("../app/components/lead-submit-form.tsx",import.meta.url),"utf8");
+const pages=["contact","appointment","lease-up-services/prospects"];
+test("server reads only private settings and rejects unavailable backend",()=>{assert.match(route,/process\.env\.LEADS_APPS_SCRIPT_URL/);assert.match(route,/process\.env\.LEADS_APPS_SCRIPT_SECRET/);assert.match(route,/status:\s*503/);assert.doesNotMatch(route,/NEXT_PUBLIC_LEADS|VITE_LEADS/);});
+test("server rejects Google delivery failure and never returns false success",()=>{assert.match(route,/result\.success\s*!==\s*true/);assert.match(route,/status:\s*502/);assert.match(route,/recipient:\s*"info@ivisionrealtycorp.com"/);assert.match(route,/site:\s*"IVISION Realty Corp"/);});
+test("forms preserve page attribution and retain submission IDs across retries",()=>{assert.match(form,/submissionId\.current/);assert.match(form,/page, name, email/);for(const p of pages){const src=readFileSync(new URL("../app/"+p+"/page.tsx",import.meta.url),"utf8");assert.match(src,new RegExp('LeadSubmitForm page="/'+p+'"'));assert.doesNotMatch(src,/form action="mailto:/);}});
+test("no live network or credentials required for source checks",()=>{assert.match(form,/role="alert"/);assert.match(form,/type="submit"/)});
