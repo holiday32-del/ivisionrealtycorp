@@ -1,8 +1,8 @@
 "use client";
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useRef, useState, type FormEvent, type ReactNode } from "react";
 
 export function LeadSubmitForm({ page, children, button, note }: { page: string; children: ReactNode; button: string; note: string }) {
-  const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const submissionId = useRef<string | null>(null);\n  const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (state === "loading") return;
@@ -15,10 +15,10 @@ export function LeadSubmitForm({ page, children, button, note }: { page: string;
     const details = Object.entries(fields).filter(([key, val]) => !excluded.has(key) && String(val).trim()).map(([key, val]) => key + ": " + val);
     const message = [fields.Message || fields.Notes || "", ...details].filter(Boolean).join("\n");
     try {
-      const response = await fetch("/api/leads", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ page, name, email: fields.Email, phone: fields.Phone, interest, message: message || interest, website: fields.website }) });
+      const response = await fetch("/api/leads", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ submissionId: submissionId.current ||= crypto.randomUUID(), page, name, email: fields.Email, phone: fields.Phone, interest, message: message || interest, website: fields.website }) });
       const result = await response.json();
       if (!response.ok || !result.success) throw Error("Delivery failed");
-      setState("success");
+      setState("success");\n      submissionId.current = null;
       form.reset();
     } catch { setState("error"); }
   }
