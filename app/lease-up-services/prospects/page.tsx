@@ -1,3 +1,4 @@
+import { LeadSubmitForm } from "../../components/lead-submit-form";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteShell } from "../../site-shell";
@@ -41,11 +42,7 @@ export default function DeveloperLeaseUpApplicationPage() {
             leasing timeline, unit count, and scope of services you may need.
           </p>
 
-          <form
-            action="mailto:info@ivisionrealtycorp.com?subject=IVISION%20Lease-Up%20Developer%20Application"
-            method="post"
-            encType="text/plain"
-          >
+          <LeadSubmitForm page="/lease-up-services/prospects" button="Submit developer application" note="Submission does not create an agency, brokerage, management, or lease-up agreement. IVISION will review the project and contact you about next steps and any required written agreement.">
             <input type="hidden" name="Service" value="IVISION Lease-Up Services" />
 
             <div className="fieldRow">
@@ -157,16 +154,9 @@ export default function DeveloperLeaseUpApplicationPage() {
               </select>
             </label>
 
-            <button className="button buttonDark" type="submit">Submit developer application</button>
+            
 
-            <p className="formNote">
-              Submitting opens your email application so you can review and send
-              the completed request directly to IVISION Realty Corp. Submission
-              does not create an agency, brokerage, management, or lease-up
-              agreement. IVISION will review the project and contact you about
-              next steps and any required written agreement.
-            </p>
-          </form>
+            </LeadSubmitForm>
 
           <p className="formNote">
             Looking for a different IVISION service? <Link href="/contact">Use our general contact page.</Link>
