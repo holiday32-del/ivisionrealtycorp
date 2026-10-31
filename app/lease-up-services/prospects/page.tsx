@@ -1,4 +1,4 @@
-import { LeadSubmitForm } from "../../../components/lead-submit-form";
+import { LeadSubmitForm } from "../../components/lead-submit-form";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteShell } from "../../site-shell";
